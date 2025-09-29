@@ -8,4 +8,8 @@ jobs:
           run: echo "hello"
         - name: bye
           run: echo "bye"
+        - name: multi-line
+          run: |
+               echo "hello"
+               echo "bye"
       
