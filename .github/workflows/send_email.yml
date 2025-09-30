@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Send email to triggering person and team-mates
-        uses: devops-actions/email@v2
+        uses: dawidd6/action-send-mail@v6
         with:
           SMTP_SERVER: smtp.gmail.com
           SMTP_PORT: 587
