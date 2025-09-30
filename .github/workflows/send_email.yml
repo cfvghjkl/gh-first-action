@@ -20,7 +20,7 @@ jobs:
         with:
           SMTP_SERVER: smtp.gmail.com
           SMTP_PORT: 587
-          SMTP_USERNAME: sushmasagarikav@gmail.com
+          SMTP_USERNAME: sagarikavsushma@gmail.com
           password: yvsr lwmy aoho vgyu
           subject: "Workflow Triggered by ${{ github.actor }}"
           body: |
