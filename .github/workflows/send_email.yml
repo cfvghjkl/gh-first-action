@@ -16,23 +16,21 @@ jobs:
   send-email:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    -  name: Send email
+       uses: dawidd6/action-send-mail@v6
+       with:
+         server_address: smtp.gmail.com
+         server_port: 587
+         username: sagarikavsushma@gmail.com
+         password: yvsrlwmyaohovgyu
+         subject: Workflow Triggered by ${{ github.actor }}
+         body: |
+           Hello team,
 
-      - name: Send email to triggering person and team-mates
-        uses: dawidd6/action-send-mail@v6
-        with:
-          SMTP_SERVER: smtp.gmail.com
-          SMTP_PORT: 587
-          SMTP_USERNAME: sagarikavsushma@gmail.com
-          password: yvsr lwmy aoho vgyu
-          subject: "Workflow Triggered by ${{ github.actor }}"
-          body: |
-            Hello team,
+           The workflow was triggered by: ${{ github.actor }}
+           Recipient: ${{ inputs.email_recipient }}
 
-            The workflow was triggered by: ${{ github.actor }}
-            Recipient: ${{ inputs.email_recipient }}
-
-            Regards,
-            GitHub Actions
-          
+           Regards,
+           GitHub Actions
+         to: ${{ inputs.email_recipient }}
+         from: sagarikavsushma@gmail.com
