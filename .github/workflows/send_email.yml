@@ -1,0 +1,34 @@
+name: Send Email on Job Trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      email_recipient:
+        description: 'Recipient email address'
+        required: true
+        type: string
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Send email to triggering person and team-mates
+        uses: mikaeljorhult/send-email@v3
+        with:
+          SMTP_SERVER: smtp.gmail.com
+          SMTP_PORT: 587
+          SMTP_USERNAME: sushmasagarikav@gmail.com
+          password: yvsr lwmy aoho vgyu
+          subject: "Workflow Triggered by ${{ github.actor }}"
+          body: |
+            Hello team,
+
+            The workflow was triggered by: ${{ github.actor }}
+            Recipient: ${{ inputs.email_recipient }}
+
+            Regards,
+            GitHub Actions
+          
