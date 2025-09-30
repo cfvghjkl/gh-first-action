@@ -7,6 +7,10 @@ on:
         description: 'Recipient email address'
         required: true
         type: string
+      from_email:
+        description: 'Sender email address'
+        required: true
+        type: string
 
 jobs:
   send-email:
