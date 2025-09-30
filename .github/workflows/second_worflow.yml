@@ -20,4 +20,4 @@ jobs:
         with:
           node-version: 18
       - name: node version
-        run: echo "node --version"   
+        run: node --version   
