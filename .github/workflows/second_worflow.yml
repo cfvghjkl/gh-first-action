@@ -1,7 +1,7 @@
 name: second workflow
 on: push
 jobs:
- first_job:
+  build:
    runs-on: ubuntu-latest
    steps:
     - name: get-code
@@ -10,3 +10,14 @@ jobs:
       uses: actions/setup-node@v3
       with: 
            node-version: 18
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: download
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: node version
+        run: echo "node --version"   
